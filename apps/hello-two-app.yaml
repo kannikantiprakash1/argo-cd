@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-two
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kannikantiprakash1/argo-cd.git
+    targetRevision: HEAD
+    path: hello-two
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
