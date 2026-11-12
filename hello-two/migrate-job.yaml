@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate-fail
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  template:
+    spec:
+      containers:
+      - name: migrate
+        image: busybox
+        command: ["sh", "-c", "echo migration failed && exit 1"]
+      restartPolicy: Never
+  backoffLimit: 0
