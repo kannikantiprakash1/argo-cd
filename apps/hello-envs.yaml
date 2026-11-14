@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: hello-envs
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - env: dev
+      - env: staging
+  template:
+    metadata:
+      name: hello-{{env}}
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/kannikantiprakash1/argo-cd.git
+        targetRevision: HEAD
+        path: hello-two
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{env}}"
