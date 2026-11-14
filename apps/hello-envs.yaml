@@ -9,6 +9,7 @@ spec:
       elements:
       - env: dev
       - env: staging
+      - env: production
   template:
     metadata:
       name: hello-{{env}}
