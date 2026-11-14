@@ -1,0 +1,5 @@
+resources:
+- ../base
+replicas:
+- name: hello-kust
+  count: 5
