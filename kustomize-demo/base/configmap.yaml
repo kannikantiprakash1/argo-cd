@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: hello-kust-config
 data:
-  GREETING: "Hello v1"
+  GREETING: "Hello v2"
