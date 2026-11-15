@@ -20,7 +20,7 @@ spec:
             name: hello-kust-config
         readinessProbe:
           httpGet:
-            path: /
+            path: /missing
             port: 80
           initialDelaySeconds: 5
           periodSeconds: 10
